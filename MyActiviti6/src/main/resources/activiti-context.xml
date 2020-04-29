@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="druidDataSource" class="com.alibaba.druid.pool.DruidDataSource">
+
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url"
+                  value="jdbc:mysql://127.0.0.1:3306/activiti6?useUnicode=true&amp;characterEncoding=UTF-8"/>
+        <property name="username" value="root"/>
+        <property name="password" value="admin"/>
+    </bean>
+
+    <bean id="dataSourceTransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+
+        <property name="dataSource" ref="druidDataSource"/>
+    </bean>
+    <bean id="processEngineConfiguration" class="org.activiti.spring.SpringProcessEngineConfiguration">
+
+        <property name="dataSource" ref="druidDataSource"/>
+        <property name="databaseSchemaUpdate" value="true"/>
+        <property name="databaseType" value="mysql"/>
+
+        <property name="activityFontName" value="微软雅黑"/>
+        <property name="labelFontName" value="微软雅黑"/>
+        <property name="annotationFontName" value="微软雅黑"/>
+
+
+        <property name="transactionManager" ref="dataSourceTransactionManager"/>
+        <property name="asyncExecutorActivate" value="true"/>
+        <!--<property name="deploymentResources">-->
+            <!--<list>-->
+                <!--<value>process/leave.bpmn</value>-->
+            <!--</list>-->
+        <!--</property>-->
+
+
+        <!--异步执行器-->
+
+    </bean>
+
+    <bean id="processEngineFactoryBean" class="org.activiti.spring.ProcessEngineFactoryBean">
+        <property name="processEngineConfiguration" ref="processEngineConfiguration"/>
+    </bean>
+
+    <bean id="repositoryService" factory-bean="processEngineFactoryBean" factory-method="getRepositoryService"/>
+    <bean id="runtimeService" factory-bean="processEngineFactoryBean" factory-method="getRuntimeService"/>
+    <bean id="taskService" factory-bean="processEngineFactoryBean" factory-method="getTaskService"/>
+    <bean id="historyService" factory-bean="processEngineFactoryBean" factory-method="getHistoryService"/>
+    <bean id="identityService" factory-bean="processEngineFactoryBean" factory-method="getIdentityService"/>
+</beans>

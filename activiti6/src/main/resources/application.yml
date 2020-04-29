@@ -1,0 +1,26 @@
+#日志配置文件
+logging:
+  config: classpath:logback.xml
+server:
+  #  端口配置
+  port: 8099
+  #  上下文路径[此为SpringBoot2.*配置方式]
+  servlet:
+    context-path: /master
+
+
+spring:
+  activiti:
+    #    流程部署目录检查
+    check-process-definitions: false
+    async-executor-activate: false
+  #    配置数据源
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    password: admin
+    url: jdbc:mysql://127.0.0.1:3306/A6?useUnicode=true&characterEncoding=UTF-8&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+  #    彩色日志输出
+  output:
+    ansi:
+      enabled: always

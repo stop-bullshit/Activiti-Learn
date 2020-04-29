@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+             xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI"
+             typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath"
+             targetNamespace="http://www.activiti.org/processdef">
+  <process id="travel_transportation" name="差旅交通报销" isExecutable="true">
+    <documentation>/dynamicDrawForm/sqckForm?f=d75b94d1fde24a7e82aed804bbfc6847</documentation>
+    <startEvent id="ks" name="开始" activiti:initiator="procStartUser">
+      <documentation>/dynamicDrawForm/sqckForm?f=d75b94d1fde24a7e82aed804bbfc6847</documentation>
+    </startEvent>
+    <userTask id="productTraffic" name="差旅交通报销申请" activiti:assignee="${procStartUser}" activiti:isPrecursorAssignment="false" activiti:formKey="/dynamicDrawForm/sqtbForm?f=d75b94d1fde24a7e82aed804bbfc6847">
+      <extensionElements>
+        <activiti:formProperty id="trip_no" name="差回标题" type="string" required="true"></activiti:formProperty>
+        <activiti:formProperty id="department" name="费用承担部门" type="string"></activiti:formProperty>
+        <activiti:formProperty id="bank" name="开户行" type="string"></activiti:formProperty>
+        <activiti:formProperty id="account_name" name="开户人姓名" type="string"></activiti:formProperty>
+        <activiti:formProperty id="account_number" name="开户卡号" type="string"></activiti:formProperty>
+        <activiti:formProperty id="total" name="合计（元）" type="string"></activiti:formProperty>
+        <activiti:formProperty id="approval_comments" name="审批意见" type="string" readable="false" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="approval_explain" name="说明" type="string" readable="false" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="apply_no" name="申请单号" type="string"></activiti:formProperty>
+        <activiti:formProperty id="applicant_name" name="申请人" type="string"></activiti:formProperty>
+        <activiti:formProperty id="apply_date" name="申请日期" type="string"></activiti:formProperty>
+        <activiti:formProperty id="title" name="标题" type="string"></activiti:formProperty>
+        <activiti:formProperty id="msg" name="信息" type="string"></activiti:formProperty>
+        <activiti:formProperty id="wf_type" name="流程类型" type="string" required="true"></activiti:formProperty>
+        <activiti:formProperty id="project_name" name="项目名称" type="string"></activiti:formProperty>
+        <activiti:formProperty id="project_code" name="项目号" type="string"></activiti:formProperty>
+        <activiti:formProperty id="sup_process_id" name="父流程实例id" type="string"></activiti:formProperty>
+        <activiti:formProperty id="contract_code" name="合同号" type="string"></activiti:formProperty>
+        <activiti:formProperty id="apply_department" name="所属部门" type="string"></activiti:formProperty>
+        <activiti:formProperty id="payway" name="支付方式" type="string"></activiti:formProperty>
+        <activiti:formProperty id="client_name" name="客户名称" type="string"></activiti:formProperty>
+        <activiti:formProperty id="upload" name="上传文件" type="string"></activiti:formProperty>
+        <activiti:formProperty id="publisher" name="任务发布人" type="string"></activiti:formProperty>
+        <activiti:formProperty id="publisherId" name="任务发布人ID" type="string" readable="false" writable="false" required="true"></activiti:formProperty>
+        <activiti:formProperty id="approveList1" name="一级领导" type="string" readable="false" writable="false" required="true"></activiti:formProperty>
+        <activiti:formProperty id="approveList2" name="二级领导" type="string" readable="false" writable="false" required="true"></activiti:formProperty>
+        <activiti:formProperty id="approveList3" name="三级领导" type="string" readable="false" writable="false" required="true"></activiti:formProperty>
+        <activiti:formProperty id="approveList4" name="四级领导" type="string" readable="false" writable="false" required="true"></activiti:formProperty>
+        <activiti:formProperty id="publisherName" name="发布人姓名" type="string" readable="false" writable="false" required="true"></activiti:formProperty>
+      </extensionElements>
+    </userTask>
+    <userTask id="cwys" name="财务预审" activiti:candidateGroups="100" activiti:isPrecursorAssignment="false" activiti:formKey="/dynamicDrawForm/spForm?f=d75b94d1fde24a7e82aed804bbfc6847">
+      <extensionElements>
+        <activiti:formProperty id="trip_no" name="差回标题" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="department" name="费用承担部门" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="bank" name="开户行" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="account_name" name="开户人姓名" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="account_number" name="开户卡号" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="total" name="合计（元）" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="approval_comments" name="审批意见" type="string" required="true"></activiti:formProperty>
+        <activiti:formProperty id="approval_explain" name="说明" type="string"></activiti:formProperty>
+        <activiti:formProperty id="apply_no" name="申请单号" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="applicant_name" name="申请人" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="apply_date" name="申请日期" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="title" name="标题" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="msg" name="信息" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="wf_type" name="流程类型" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="project_name" name="项目名称" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="project_code" name="项目号" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="sup_process_id" name="父流程实例id" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="contract_code" name="合同号" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="apply_department" name="所属部门" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="payway" name="支付方式" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="client_name" name="客户名称" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="upload" name="上传文件" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="publisher" name="任务发布人" type="string" writable="false"></activiti:formProperty>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="sid-A1F91291-05C9-4293-96F4-2D467D82385F" sourceRef="productTraffic" targetRef="sid-1743E24D-5F2B-4B6A-82E4-F6E67318D439"></sequenceFlow>
+    <userTask id="rwfb" name="任务发布人(${publisherName})审批" activiti:candidateUsers="${publisherId}" activiti:isPrecursorAssignment="false" activiti:formKey="/dynamicDrawForm/spForm?f=d75b94d1fde24a7e82aed804bbfc6847">
+      <extensionElements>
+        <activiti:formProperty id="trip_no" name="差回标题" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="department" name="费用承担部门" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="bank" name="开户行" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="account_name" name="开户人姓名" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="account_number" name="开户卡号" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="total" name="合计（元）" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="approval_comments" name="审批意见" type="string" required="true"></activiti:formProperty>
+        <activiti:formProperty id="approval_explain" name="说明" type="string"></activiti:formProperty>
+        <activiti:formProperty id="apply_no" name="申请单号" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="applicant_name" name="申请人" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="apply_date" name="申请日期" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="title" name="标题" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="msg" name="信息" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="wf_type" name="流程类型" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="project_name" name="项目名称" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="project_code" name="项目号" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="sup_process_id" name="父流程实例id" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="contract_code" name="合同号" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="apply_department" name="所属部门" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="payway" name="支付方式" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="client_name" name="客户名称" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="upload" name="上传文件" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="publisher" name="任务发布人" type="string" writable="false"></activiti:formProperty>
+      </extensionElements>
+    </userTask>
+    <userTask id="zssj" name="${approveList1.get(&quot;NAME&quot;)}审批" activiti:candidateGroups="${approveList1.get(&quot;PID&quot;)}" activiti:isPrecursorAssignment="false" activiti:formKey="/dynamicDrawForm/spForm?f=d75b94d1fde24a7e82aed804bbfc6847">
+      <extensionElements>
+        <activiti:formProperty id="trip_no" name="差回标题" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="department" name="费用承担部门" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="bank" name="开户行" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="account_name" name="开户人姓名" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="account_number" name="开户卡号" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="total" name="合计（元）" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="approval_comments" name="审批意见" type="string" required="true"></activiti:formProperty>
+        <activiti:formProperty id="approval_explain" name="说明" type="string"></activiti:formProperty>
+        <activiti:formProperty id="apply_no" name="申请单号" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="applicant_name" name="申请人" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="apply_date" name="申请日期" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="title" name="标题" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="msg" name="信息" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="wf_type" name="流程类型" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="project_name" name="项目名称" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="project_code" name="项目号" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="sup_process_id" name="父流程实例id" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="contract_code" name="合同号" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="apply_department" name="所属部门" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="payway" name="支付方式" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="client_name" name="客户名称" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="upload" name="上传文件" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="publisher" name="任务发布人" type="string" writable="false"></activiti:formProperty>
+      </extensionElements>
+    </userTask>
+    <userTask id="bmzl" name="${approveList2.get(&quot;NAME&quot;)}审批" activiti:candidateGroups="${approveList2.get(&quot;PID&quot;)}" activiti:isPrecursorAssignment="false" activiti:formKey="/dynamicDrawForm/spForm?f=d75b94d1fde24a7e82aed804bbfc6847">
+      <extensionElements>
+        <activiti:formProperty id="trip_no" name="差回标题" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="department" name="费用承担部门" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="bank" name="开户行" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="account_name" name="开户人姓名" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="account_number" name="开户卡号" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="total" name="合计（元）" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="approval_comments" name="审批意见" type="string" required="true"></activiti:formProperty>
+        <activiti:formProperty id="approval_explain" name="说明" type="string"></activiti:formProperty>
+        <activiti:formProperty id="apply_no" name="申请单号" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="applicant_name" name="申请人" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="apply_date" name="申请日期" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="title" name="标题" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="msg" name="信息" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="wf_type" name="流程类型" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="project_name" name="项目名称" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="project_code" name="项目号" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="sup_process_id" name="父流程实例id" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="contract_code" name="合同号" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="apply_department" name="所属部门" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="payway" name="支付方式" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="client_name" name="客户名称" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="upload" name="上传文件" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="publisher" name="任务发布人" type="string" writable="false"></activiti:formProperty>
+      </extensionElements>
+    </userTask>
+    <userTask id="bmzj" name="${approveList3.get(&quot;NAME&quot;)}审批审批" activiti:candidateGroups="${approveList3.get(&quot;PID&quot;)}" activiti:isPrecursorAssignment="false" activiti:formKey="/dynamicDrawForm/spForm?f=d75b94d1fde24a7e82aed804bbfc6847">
+      <extensionElements>
+        <activiti:formProperty id="trip_no" name="差回标题" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="department" name="费用承担部门" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="bank" name="开户行" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="account_name" name="开户人姓名" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="account_number" name="开户卡号" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="total" name="合计（元）" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="approval_comments" name="审批意见" type="string" required="true"></activiti:formProperty>
+        <activiti:formProperty id="approval_explain" name="说明" type="string"></activiti:formProperty>
+        <activiti:formProperty id="apply_no" name="申请单号" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="applicant_name" name="申请人" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="apply_date" name="申请日期" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="title" name="标题" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="msg" name="信息" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="wf_type" name="流程类型" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="project_name" name="项目名称" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="project_code" name="项目号" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="sup_process_id" name="父流程实例id" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="contract_code" name="合同号" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="apply_department" name="所属部门" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="payway" name="支付方式" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="client_name" name="客户名称" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="upload" name="上传文件" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="publisher" name="任务发布人" type="string" writable="false"></activiti:formProperty>
+      </extensionElements>
+    </userTask>
+    <userTask id="cwzj" name="财务总监审批" activiti:candidateGroups="056" activiti:isPrecursorAssignment="false" activiti:formKey="/dynamicDrawForm/spForm?f=d75b94d1fde24a7e82aed804bbfc6847">
+      <extensionElements>
+        <activiti:formProperty id="trip_no" name="差回标题" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="department" name="费用承担部门" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="bank" name="开户行" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="account_name" name="开户人姓名" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="account_number" name="开户卡号" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="total" name="合计（元）" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="approval_comments" name="审批意见" type="string" required="true"></activiti:formProperty>
+        <activiti:formProperty id="approval_explain" name="说明" type="string"></activiti:formProperty>
+        <activiti:formProperty id="apply_no" name="申请单号" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="applicant_name" name="申请人" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="apply_date" name="申请日期" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="title" name="标题" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="msg" name="信息" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="wf_type" name="流程类型" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="project_name" name="项目名称" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="project_code" name="项目号" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="sup_process_id" name="父流程实例id" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="contract_code" name="合同号" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="apply_department" name="所属部门" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="payway" name="支付方式" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="client_name" name="客户名称" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="upload" name="上传文件" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="publisher" name="任务发布人" type="string" writable="false"></activiti:formProperty>
+      </extensionElements>
+    </userTask>
+    <endEvent id="js" name="结束"></endEvent>
+    <exclusiveGateway id="sid-E974E12B-9F88-4117-AD47-086487D74CBD"></exclusiveGateway>
+    <serviceTask id="sid-1743E24D-5F2B-4B6A-82E4-F6E67318D439" name="获取审批信息" activiti:expression="${commonService.getApprovalInfo(execution)}"></serviceTask>
+    <sequenceFlow id="sid-EC09774A-380F-4715-9C02-1D7B5506AAC2" sourceRef="sid-1743E24D-5F2B-4B6A-82E4-F6E67318D439" targetRef="cwys"></sequenceFlow>
+    <exclusiveGateway id="sid-EFD71B81-9C9B-4D24-9F01-DBABFDC8858B"></exclusiveGateway>
+    <exclusiveGateway id="sid-A512494B-FAA2-4E38-82BE-EA17115EA51B"></exclusiveGateway>
+    <sequenceFlow id="sid-3E8A4A8B-1E56-4A53-BBBC-7F31C09ED6E7" name="不同意" sourceRef="cwys" targetRef="productTraffic">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${approval_comments==2}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="sid-CA14E16C-3EB5-4B03-B8D1-7AEA7C73E3BE" name="不同意" sourceRef="rwfb" targetRef="productTraffic">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${approval_comments==2}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="sid-8092C0DF-D56F-4027-8318-109981E2902E" name="不同意" sourceRef="zssj" targetRef="productTraffic">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${approval_comments==2}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="sid-B87A2F8B-4801-428D-AAFC-BC065DA09D81" name="不同意" sourceRef="bmzl" targetRef="productTraffic">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${approval_comments==2}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="sid-DD2E3941-970D-467E-95CB-246CDEDAA3CD" sourceRef="bmzl" targetRef="sid-A512494B-FAA2-4E38-82BE-EA17115EA51B">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${approval_comments==1}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="sid-9F2E879E-1363-4BC6-9E3F-F8A630BBE17E" sourceRef="rwfb" targetRef="sid-E974E12B-9F88-4117-AD47-086487D74CBD">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${approval_comments==1}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="sid-34A310D8-D55F-4C4C-BC3E-69F46D4174AF" sourceRef="cwys" targetRef="rwfb">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${approval_comments==1}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="sid-7981E23F-0E34-484E-94C4-D029060001D9" sourceRef="zssj" targetRef="sid-EFD71B81-9C9B-4D24-9F01-DBABFDC8858B">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${approval_comments==1}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="sid-5C1C6238-41C9-44ED-BA72-B8997F8B9B35" name="二级领导" sourceRef="sid-EFD71B81-9C9B-4D24-9F01-DBABFDC8858B" targetRef="bmzl">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${approveList2!=null}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="sid-9F199A65-2115-4708-B51E-DE37B44EBFBA" name="一级领导" sourceRef="sid-E974E12B-9F88-4117-AD47-086487D74CBD" targetRef="zssj">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${approveList1!=null}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="sid-CF436F89-3CE5-4387-8ABE-5A02E250DC23" sourceRef="cwzj" targetRef="js">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${approval_comments==1}]]></conditionExpression>
+    </sequenceFlow>
+    <userTask id="sjldsp" name="${approveList4.get(&quot;NAME&quot;)}审批审批" activiti:candidateGroups="${approveList4.get(&quot;PID&quot;)}" activiti:isPrecursorAssignment="false" activiti:formKey="/dynamicDrawForm/spForm?f=d75b94d1fde24a7e82aed804bbfc6847">
+      <extensionElements>
+        <activiti:formProperty id="trip_no" name="差回标题" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="department" name="费用承担部门" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="bank" name="开户行" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="account_name" name="开户人姓名" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="account_number" name="开户卡号" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="total" name="合计（元）" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="approval_comments" name="审批意见" type="string" required="true"></activiti:formProperty>
+        <activiti:formProperty id="approval_explain" name="说明" type="string"></activiti:formProperty>
+        <activiti:formProperty id="apply_no" name="申请单号" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="applicant_name" name="申请人" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="apply_date" name="申请日期" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="title" name="标题" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="msg" name="信息" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="wf_type" name="流程类型" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="project_name" name="项目名称" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="project_code" name="项目号" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="sup_process_id" name="父流程实例id" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="contract_code" name="合同号" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="apply_department" name="所属部门" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="payway" name="支付方式" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="client_name" name="客户名称" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="upload" name="上传文件" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="publisher" name="任务发布人" type="string" writable="false"></activiti:formProperty>
+      </extensionElements>
+    </userTask>
+    <exclusiveGateway id="sid-2F97D909-B867-4311-AE76-0ECBA97FEFDD"></exclusiveGateway>
+    <sequenceFlow id="sid-FD29CDB5-850A-43E0-A9E7-B0DD2C7462D9" sourceRef="cwzj" targetRef="productTraffic">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${approval_comments==2}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="sid-BFEAB203-020E-49B5-8284-EA5C75E8DAA7" name="二级领导为空" sourceRef="sid-EFD71B81-9C9B-4D24-9F01-DBABFDC8858B" targetRef="cwzj">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${approveList2==null}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="sid-D7C2E1FB-04F2-46C3-B1B4-88AF2A3A7387" name="一级领导为空" sourceRef="sid-E974E12B-9F88-4117-AD47-086487D74CBD" targetRef="cwzj">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${approveList1==null}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="sid-7032BDF7-89E5-43DC-832D-239285AFA384" name="同意" sourceRef="sjldsp" targetRef="cwzj">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${approval_comments==1}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="sid-C9D7AF2B-7570-40E2-852B-7B4D778D0CDB" name="不同意" sourceRef="bmzj" targetRef="productTraffic">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${approval_comments==2}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="sid-32885817-83E1-49DC-86FC-81EB8504B7C8" name="不同意" sourceRef="sjldsp" targetRef="productTraffic">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${approval_comments==2}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="sid-4A08BF3F-B6E3-4C7E-A1D8-8567C3D12D5A" name="四级领导为空" sourceRef="sid-2F97D909-B867-4311-AE76-0ECBA97FEFDD" targetRef="cwzj">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${approveList4==null}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="sid-EC6160FA-051B-4A5D-9D74-26E73AAF98CB" name="三级领导为空" sourceRef="sid-A512494B-FAA2-4E38-82BE-EA17115EA51B" targetRef="cwzj">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${approveList3==null}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="sid-EE3FA25C-7E84-42D6-829A-F0CBD2172835" sourceRef="bmzj" targetRef="sid-2F97D909-B867-4311-AE76-0ECBA97FEFDD">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${approval_comments==1}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="sid-ECE769E9-C5AD-4DDB-B4AA-2290F18A3B01" name="三级领导" sourceRef="sid-A512494B-FAA2-4E38-82BE-EA17115EA51B" targetRef="bmzj">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${approveList3!=null}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="sid-3D49AC88-3FA2-42D2-BAE1-1BAAF36EDB00" name="四级领导" sourceRef="sid-2F97D909-B867-4311-AE76-0ECBA97FEFDD" targetRef="sjldsp">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${approveList4!=null}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="sid-5F52C212-8508-4C9B-9589-BDE40751644D" sourceRef="ks" targetRef="productTraffic"></sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_travel_transportation">
+    <bpmndi:BPMNPlane bpmnElement="travel_transportation" id="BPMNPlane_travel_transportation">
+      <bpmndi:BPMNShape bpmnElement="ks" id="BPMNShape_ks">
+        <omgdc:Bounds height="30.0" width="30.0" x="15.0" y="135.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="productTraffic" id="BPMNShape_productTraffic">
+        <omgdc:Bounds height="80.0" width="100.00000000000001" x="69.3978391454974" y="109.99999999999989"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="cwys" id="BPMNShape_cwys">
+        <omgdc:Bounds height="80.00000000000001" width="100.0" x="370.1218087759861" y="109.99999999999993"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="rwfb" id="BPMNShape_rwfb">
+        <omgdc:Bounds height="80.0" width="100.0" x="507.13330078125" y="110.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="zssj" id="BPMNShape_zssj">
+        <omgdc:Bounds height="80.0" width="100.0" x="750.0" y="110.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="bmzl" id="BPMNShape_bmzl">
+        <omgdc:Bounds height="80.0" width="100.0" x="975.0" y="110.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="bmzj" id="BPMNShape_bmzj">
+        <omgdc:Bounds height="80.0" width="100.0" x="1215.0" y="110.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="cwzj" id="BPMNShape_cwzj">
+        <omgdc:Bounds height="80.0" width="100.0" x="840.0" y="315.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="js" id="BPMNShape_js">
+        <omgdc:Bounds height="28.0" width="28.0" x="690.0" y="341.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-E974E12B-9F88-4117-AD47-086487D74CBD" id="BPMNShape_sid-E974E12B-9F88-4117-AD47-086487D74CBD">
+        <omgdc:Bounds height="40.0" width="40.0" x="653.9999674479167" y="130.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-1743E24D-5F2B-4B6A-82E4-F6E67318D439" id="BPMNShape_sid-1743E24D-5F2B-4B6A-82E4-F6E67318D439">
+        <omgdc:Bounds height="80.0" width="100.0" x="225.0" y="110.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-EFD71B81-9C9B-4D24-9F01-DBABFDC8858B" id="BPMNShape_sid-EFD71B81-9C9B-4D24-9F01-DBABFDC8858B">
+        <omgdc:Bounds height="40.0" width="40.0" x="870.0" y="129.99999999999997"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-A512494B-FAA2-4E38-82BE-EA17115EA51B" id="BPMNShape_sid-A512494B-FAA2-4E38-82BE-EA17115EA51B">
+        <omgdc:Bounds height="40.0" width="40.0" x="1095.0" y="130.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sjldsp" id="BPMNShape_sjldsp">
+        <omgdc:Bounds height="80.0" width="100.0" x="1215.0" y="315.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-2F97D909-B867-4311-AE76-0ECBA97FEFDD" id="BPMNShape_sid-2F97D909-B867-4311-AE76-0ECBA97FEFDD">
+        <omgdc:Bounds height="40.0" width="40.0" x="1245.0" y="210.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="sid-9F2E879E-1363-4BC6-9E3F-F8A630BBE17E" id="BPMNEdge_sid-9F2E879E-1363-4BC6-9E3F-F8A630BBE17E">
+        <omgdi:waypoint x="607.13330078125" y="150.0"></omgdi:waypoint>
+        <omgdi:waypoint x="653.9999674479167" y="150.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-EC6160FA-051B-4A5D-9D74-26E73AAF98CB" id="BPMNEdge_sid-EC6160FA-051B-4A5D-9D74-26E73AAF98CB">
+        <omgdi:waypoint x="1104.5348837209303" y="159.53488372093022"></omgdi:waypoint>
+        <omgdi:waypoint x="933.9024390243902" y="315.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-FD29CDB5-850A-43E0-A9E7-B0DD2C7462D9" id="BPMNEdge_sid-FD29CDB5-850A-43E0-A9E7-B0DD2C7462D9">
+        <omgdi:waypoint x="890.0" y="395.0"></omgdi:waypoint>
+        <omgdi:waypoint x="890.0" y="425.0"></omgdi:waypoint>
+        <omgdi:waypoint x="119.0" y="425.0"></omgdi:waypoint>
+        <omgdi:waypoint x="119.33997163342507" y="189.9999999999999"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-34A310D8-D55F-4C4C-BC3E-69F46D4174AF" id="BPMNEdge_sid-34A310D8-D55F-4C4C-BC3E-69F46D4174AF">
+        <omgdi:waypoint x="470.1218087759861" y="149.99999999999997"></omgdi:waypoint>
+        <omgdi:waypoint x="507.13330078125" y="149.99999999999997"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-3D49AC88-3FA2-42D2-BAE1-1BAAF36EDB00" id="BPMNEdge_sid-3D49AC88-3FA2-42D2-BAE1-1BAAF36EDB00">
+        <omgdi:waypoint x="1265.0" y="250.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1265.0" y="315.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-3E8A4A8B-1E56-4A53-BBBC-7F31C09ED6E7" id="BPMNEdge_sid-3E8A4A8B-1E56-4A53-BBBC-7F31C09ED6E7">
+        <omgdi:waypoint x="420.06706325868896" y="109.99999999999993"></omgdi:waypoint>
+        <omgdi:waypoint x="420.0" y="61.0"></omgdi:waypoint>
+        <omgdi:waypoint x="119.0" y="61.0"></omgdi:waypoint>
+        <omgdi:waypoint x="119.21903503516151" y="109.99999999999989"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-CF436F89-3CE5-4387-8ABE-5A02E250DC23" id="BPMNEdge_sid-CF436F89-3CE5-4387-8ABE-5A02E250DC23">
+        <omgdi:waypoint x="840.0" y="355.0"></omgdi:waypoint>
+        <omgdi:waypoint x="718.0" y="355.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-8092C0DF-D56F-4027-8318-109981E2902E" id="BPMNEdge_sid-8092C0DF-D56F-4027-8318-109981E2902E">
+        <omgdi:waypoint x="800.0" y="110.0"></omgdi:waypoint>
+        <omgdi:waypoint x="800.0" y="61.0"></omgdi:waypoint>
+        <omgdi:waypoint x="119.0" y="61.0"></omgdi:waypoint>
+        <omgdi:waypoint x="119.21903503516151" y="109.99999999999989"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-9F199A65-2115-4708-B51E-DE37B44EBFBA" id="BPMNEdge_sid-9F199A65-2115-4708-B51E-DE37B44EBFBA">
+        <omgdi:waypoint x="693.9999674479167" y="150.0"></omgdi:waypoint>
+        <omgdi:waypoint x="750.0" y="150.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-A1F91291-05C9-4293-96F4-2D467D82385F" id="BPMNEdge_sid-A1F91291-05C9-4293-96F4-2D467D82385F">
+        <omgdi:waypoint x="169.39783914549741" y="149.99999999999991"></omgdi:waypoint>
+        <omgdi:waypoint x="225.0" y="149.99999999999997"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-32885817-83E1-49DC-86FC-81EB8504B7C8" id="BPMNEdge_sid-32885817-83E1-49DC-86FC-81EB8504B7C8">
+        <omgdi:waypoint x="1315.0" y="355.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1370.0" y="355.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1370.0" y="58.0"></omgdi:waypoint>
+        <omgdi:waypoint x="119.0" y="58.0"></omgdi:waypoint>
+        <omgdi:waypoint x="119.22486560397681" y="109.99999999999989"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-EC09774A-380F-4715-9C02-1D7B5506AAC2" id="BPMNEdge_sid-EC09774A-380F-4715-9C02-1D7B5506AAC2">
+        <omgdi:waypoint x="325.0" y="150.0"></omgdi:waypoint>
+        <omgdi:waypoint x="370.1218087759861" y="149.99999999999997"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-DD2E3941-970D-467E-95CB-246CDEDAA3CD" id="BPMNEdge_sid-DD2E3941-970D-467E-95CB-246CDEDAA3CD">
+        <omgdi:waypoint x="1075.0" y="150.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1095.0" y="150.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-5F52C212-8508-4C9B-9589-BDE40751644D" id="BPMNEdge_sid-5F52C212-8508-4C9B-9589-BDE40751644D">
+        <omgdi:waypoint x="45.0" y="149.99999999999997"></omgdi:waypoint>
+        <omgdi:waypoint x="69.3978391454974" y="149.99999999999994"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-CA14E16C-3EB5-4B03-B8D1-7AEA7C73E3BE" id="BPMNEdge_sid-CA14E16C-3EB5-4B03-B8D1-7AEA7C73E3BE">
+        <omgdi:waypoint x="557.0720130657328" y="110.0"></omgdi:waypoint>
+        <omgdi:waypoint x="557.0" y="63.0"></omgdi:waypoint>
+        <omgdi:waypoint x="119.0" y="63.0"></omgdi:waypoint>
+        <omgdi:waypoint x="119.21492459584343" y="109.99999999999989"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-C9D7AF2B-7570-40E2-852B-7B4D778D0CDB" id="BPMNEdge_sid-C9D7AF2B-7570-40E2-852B-7B4D778D0CDB">
+        <omgdi:waypoint x="1265.0" y="110.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1265.0" y="58.0"></omgdi:waypoint>
+        <omgdi:waypoint x="119.0" y="58.0"></omgdi:waypoint>
+        <omgdi:waypoint x="119.22486560397681" y="109.99999999999989"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-4A08BF3F-B6E3-4C7E-A1D8-8567C3D12D5A" id="BPMNEdge_sid-4A08BF3F-B6E3-4C7E-A1D8-8567C3D12D5A">
+        <omgdi:waypoint x="1250.0" y="235.0"></omgdi:waypoint>
+        <omgdi:waypoint x="940.0" y="338.3333333333333"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-7981E23F-0E34-484E-94C4-D029060001D9" id="BPMNEdge_sid-7981E23F-0E34-484E-94C4-D029060001D9">
+        <omgdi:waypoint x="850.0" y="150.0"></omgdi:waypoint>
+        <omgdi:waypoint x="870.0" y="149.99999999999997"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-5C1C6238-41C9-44ED-BA72-B8997F8B9B35" id="BPMNEdge_sid-5C1C6238-41C9-44ED-BA72-B8997F8B9B35">
+        <omgdi:waypoint x="910.0" y="149.99999999999997"></omgdi:waypoint>
+        <omgdi:waypoint x="975.0" y="150.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-ECE769E9-C5AD-4DDB-B4AA-2290F18A3B01" id="BPMNEdge_sid-ECE769E9-C5AD-4DDB-B4AA-2290F18A3B01">
+        <omgdi:waypoint x="1135.0" y="150.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1215.0" y="150.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-BFEAB203-020E-49B5-8284-EA5C75E8DAA7" id="BPMNEdge_sid-BFEAB203-020E-49B5-8284-EA5C75E8DAA7">
+        <omgdi:waypoint x="890.0" y="169.99999999999997"></omgdi:waypoint>
+        <omgdi:waypoint x="890.0" y="315.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-D7C2E1FB-04F2-46C3-B1B4-88AF2A3A7387" id="BPMNEdge_sid-D7C2E1FB-04F2-46C3-B1B4-88AF2A3A7387">
+        <omgdi:waypoint x="684.2612508612552" y="159.7387165866615"></omgdi:waypoint>
+        <omgdi:waypoint x="847.8536521849594" y="315.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-B87A2F8B-4801-428D-AAFC-BC065DA09D81" id="BPMNEdge_sid-B87A2F8B-4801-428D-AAFC-BC065DA09D81">
+        <omgdi:waypoint x="1025.0" y="110.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1025.0" y="61.0"></omgdi:waypoint>
+        <omgdi:waypoint x="119.0" y="61.0"></omgdi:waypoint>
+        <omgdi:waypoint x="119.21903503516151" y="109.99999999999989"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-7032BDF7-89E5-43DC-832D-239285AFA384" id="BPMNEdge_sid-7032BDF7-89E5-43DC-832D-239285AFA384">
+        <omgdi:waypoint x="1215.0" y="355.0"></omgdi:waypoint>
+        <omgdi:waypoint x="940.0" y="355.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-EE3FA25C-7E84-42D6-829A-F0CBD2172835" id="BPMNEdge_sid-EE3FA25C-7E84-42D6-829A-F0CBD2172835">
+        <omgdi:waypoint x="1265.0" y="190.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1265.0" y="210.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>
